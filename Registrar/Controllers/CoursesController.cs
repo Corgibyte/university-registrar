@@ -22,7 +22,10 @@ namespace Registrar.Controllers
 
     public ActionResult Details(int id)
     {
-      Course thisCourse = _db.Courses.FirstOrDefault(Course => Course.CourseId == id);
+      Course thisCourse = _db.Courses
+        .Include(course => course.JoinEntities)
+        .ThenInclude(join => join.Student)
+        .FirstOrDefault(Course => Course.CourseId == id);
       return View(thisCourse);
     }
 
