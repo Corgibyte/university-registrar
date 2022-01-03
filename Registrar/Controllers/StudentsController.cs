@@ -33,6 +33,7 @@ namespace Registrar.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name");
       return View();
     }
 
@@ -46,6 +47,7 @@ namespace Registrar.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name");
       Student thisStudent = _db.Students.FirstOrDefault(student => student.StudentId == id);
       return View(thisStudent);
     }

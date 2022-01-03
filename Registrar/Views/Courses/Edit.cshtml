@@ -11,5 +11,9 @@
 
   @Html.LabelFor(model => model.CourseNumber)
   @Html.EditorFor(model => model.CourseNumber)
+
+  @Html.Label("Select department")
+  @Html.DropDownList("DepartmentId")
+
   <button class="btn" type="submit">edit course</button>
 }

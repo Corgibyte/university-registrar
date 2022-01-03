@@ -1,0 +1,40 @@
+@using Registrar.Models;
+@model Registrar.Models.Department
+
+<h2>Department Details</h2>
+<h3>Department Name: @Html.DisplayFor(model => model.Name)</h3>
+
+@if (@Model.Courses.Count == 0)
+{
+  <p>This department has no current courses</p>
+}
+else
+{
+  <h4>Courses:</h4>
+  <ul>
+  @foreach (Course course in Model.Courses)
+    {
+      <li>@Html.ActionLink($"{@course.CourseNumber}: {@course.Name}", "Details", "Courses", new { id = course.CourseId })</li>
+    }
+  </ul>
+}
+
+@if (@Model.Students.Count == 0)
+{
+  <p>This department has no current students</p>
+}
+else
+{
+  <h4>Students:</h4>
+  <ul>
+  @foreach (Student student in Model.Students)
+    {
+      <li>@Html.ActionLink($"{@student.Name}", "Details", "Students", new { id = student.StudentId })</li>
+    }
+  </ul>
+}
+
+<p>@Html.ActionLink("Edit department", "Edit", new { id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Delete department", "Delete", new {id = Model.DepartmentId })</p>
+<p>@Html.ActionLink("Back to departments", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

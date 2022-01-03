@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,7 @@ namespace Registrar.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name");
       return View();
     }
 
@@ -44,6 +46,7 @@ namespace Registrar.Controllers
 
     public ActionResult Edit(int id)
     {
+      ViewBag.DepartmentId = new SelectList(_db.Departments, "DepartmentId", "Name");
       Course thisCourse = _db.Courses.FirstOrDefault(Course => Course.CourseId == id);
       return View(thisCourse);
     }
