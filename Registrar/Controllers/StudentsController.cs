@@ -79,6 +79,24 @@ namespace Registrar.Controllers
     }
 
     [HttpPost]
+    public ActionResult SwitchCompleted(int joinId)
+    {
+      var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);
+      joinEntry.Complete = !joinEntry.Complete;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult CompletedDetails(int id)
+    {
+      var thisStudent = _db.Students
+        .Include(student => student.JoinEntities)
+        .ThenInclude(join => join.Course)
+        .FirstOrDefault(Student => Student.StudentId == id);
+      return View(thisStudent);
+    }
+
+    [HttpPost]
     public ActionResult DeleteCourse(int joinId)
     {
       var joinEntry = _db.CourseStudent.FirstOrDefault(entry => entry.CourseStudentId == joinId);

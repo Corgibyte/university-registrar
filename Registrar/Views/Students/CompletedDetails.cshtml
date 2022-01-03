@@ -10,31 +10,13 @@
 }
 else
 {
-  <p>@Html.ActionLink("See Completed courses only", "CompletedDetails", new { id = Model.StudentId })</p>
   <h4>Courses:</h4>
   <ul>
   @foreach (var join in Model.JoinEntities)
     {
-      <li>
-        @join.Course.Name
-        @if (join.Complete)
-        {
-          <p>Completed</p>
-        }
-        else
-        {
-          <p>Incomplete</p>
-        }
-      </li>
-      @using (Html.BeginForm("DeleteCourse", "Students"))
+      @if (join.Complete)
       {
-        @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Delete" />
-      }
-      @using (Html.BeginForm("SwitchCompleted", "Students"))
-      {
-        @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Toggle Completed">
+        <li>@join.Course.Name</li>
       }
     }
   </ul>
