@@ -1,0 +1,7 @@
+@model Registrar.Models.Student
+
+<h2>Student Details</h2>
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.EnrollmentDate): @Html.DisplayFor(model => model.EnrollmentDate)</h3>
+
+<p>@Html.ActionLink("Back to students", "Index")</p>
