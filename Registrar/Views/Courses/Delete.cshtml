@@ -1,0 +1,10 @@
+@model Registrar.Models.Course
+
+<h2>Are you sure you want to delete @Html.DisplayFor(model => model.Name) course?</h2>
+
+@using (Html.BeginForm())
+{
+  <button class="btn" type="submit">Delete course</button>
+}
+
+<p>@Html.ActionLink("Back to courses", "Index")</p>

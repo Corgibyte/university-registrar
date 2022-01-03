@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using Registrar.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Registrar.Controllers
 {
@@ -29,13 +30,19 @@ namespace Registrar.Controllers
 
     public ActionResult Create()
     {
+      ViewBag.CourseId = new SelectList(_db.Courses, "CourseId", "Name");
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Student student)
+    public ActionResult Create(Student student, int CourseId)
     {
       _db.Students.Add(student);
+      _db.SaveChanges();
+      if (CourseId != 0)
+      {
+        _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
+      }
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

@@ -9,5 +9,8 @@
 
   @Html.LabelFor(model => model.EnrollmentDate)
   @Html.EditorFor(model => model.EnrollmentDate)
-  <button class="btn" type="submit">Add new student</button>
+
+  @Html.Label("Select Course")
+  @Html.DropDownList("CourseId")
+  <input type="submit" value="Add new student" class="btn btn-default" />
 }
