@@ -1,0 +1,15 @@
+@model Registrar.Models.Student
+
+<h4>Edit this student: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.StudentId)
+
+  @Html.LabelFor(model => model.Name)
+  @Html.TextBoxFor(model => model.Name)
+
+  @Html.LabelFor(model => model.EnrollmentDate)
+  @Html.EditorFor(model => model.EnrollmentDate)
+  <button class="btn" type="submit">Edit student</button>
+}
