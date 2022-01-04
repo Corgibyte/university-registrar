@@ -1,4 +1,15 @@
-<h1>University Registrar System</h1>
-<p>@Html.ActionLink("See all students", "Index", "Students")</p>
-<p>@Html.ActionLink("See all courses", "Index", "Courses")</p>
-<p>@Html.ActionLink("See all departments", "Index", "Departments")</p>
+<h1 id="hero-heading">University Registrar System</h1>
+<div id="hero">
+  <div class="hero-img-top-left">
+    <a href="../Courses/Index"><img class="hero-img" src="~/img/teacher.jpg" /></a>
+    <p class="hero-p">Courses</p>
+  </div>
+  <div class="hero-img-right">
+    <a id="student-img" href="../Students/Index"><img class="hero-img" id="people-img" src="~/img/people.jpg" /></a>
+    <p class="hero-p">Students</p>
+  </div>
+  <div class="hero-img-bot-left">
+    <a id="department-img" href="../Departments/Index"><img class="hero-img" src="~/img/degree.jpg" /></a>
+    <p class="hero-p">Departments</p>
+  </div>
+  <div>

@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  background-color: white;
+  text-align: center;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: rgb(77, 92, 69);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: rgb(77, 92, 69);
+  font-weight: bold;
+}
+
+#nav-ul {
+  display: flex;
+  margin-left: -2rem;
+}
+
+#nav-logo {
+  font-size: 1.3rem;
+}
+
+#nav-li-2 {
+  margin-left:auto;
+}
+
+nav li > *{
+  padding-right: 1em;
+  padding-top: 1em;
+}
+
+nav li a {
+  color: rgb(77, 92, 69);
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+nav li a:hover {
+  border-top: .5em solid rgb(77, 92, 69);
+  color: rgb(77, 92, 69);
+  font-weight: bold;
+}
+
+#hero-heading {
+  text-align: center;
+  color:rgb(77, 92, 69);
+  font-weight: bold;
+}
+
+#hero {
+  margin-top: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 85vh;
+  overflow: hidden;
+  grid-template-areas:
+    "top-left top-left right"
+    "bottom-left bottom-left right"
+}
+
+.hero-img-top-left {
+  grid-area: top-left;
+  height: 40vh;
+  position: relative;
+}
+
+.hero-img-bot-left {
+  grid-area: bottom-left;
+  height: 40vh;
+  position: relative;
+}
+
+.hero-img-right {
+  grid-area: right;
+  height: 80vh;
+  position: relative;
+}
+
+.hero-p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: .5em 1em;
+  font-size: 1.3rem;
+  border-radius: .5em;
+}
+
+.hero-img {
+  width: 65%;
+}
+
+.hero-img:hover {
+  width: 70%;
+}
+
+#people-img {
+  width: 60%;
+}
+
+#people-img:hover {
+  width: 65%;
+}

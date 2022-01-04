@@ -4,8 +4,6 @@
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
 <h3>@Html.DisplayNameFor(model => model.CourseNumber): @Html.DisplayFor(model => model.CourseNumber)</h3>
 
-<p>@Html.ActionLink("See currently enrolled students only", "IncompletedDetails", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("See course alumni only", "CompletedDetails", new { id = Model.CourseId })</p>
 @if (@Model.JoinEntities.Count == 0)
 {
   <p>This course has no students enrolled</p>
@@ -13,16 +11,20 @@
 else
 {
   <h3>Course students:</h3>
+  <h4>Current Students:</h4>
   <ul>
   @foreach (var join in Model.JoinEntities)
     {
-      <h4>Current Students:</h4>
       @if (!join.Complete)
       {
         <li>@join.Student.Name</li>
       }
-
-      <h4>Class Alumni:</h4>
+    }
+  </ul>
+  <h4>Class Alumni:</h4>
+  <ul>
+  @foreach (var join in Model.JoinEntities)
+    {
       @if (join.Complete)
       {
         <li>@join.Student.Name</li>
@@ -33,5 +35,3 @@ else
 
 <p>@Html.ActionLink("Edit course", "Edit", new { id = Model.CourseId })</p>
 <p>@Html.ActionLink("Delete course", "Delete", new { id = Model.CourseId })</p>
-<p>@Html.ActionLink("Back to Courses", "Index")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
