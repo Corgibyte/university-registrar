@@ -5,7 +5,7 @@
 
 #### encouragement from **Kim Brannian**
 
-![illustration of college degree](/registrar/wwwroot/img/degree.jpg)
+![illustration of college degree](/Registrar/wwwroot/img/degree.jpg)
 
 #### _A program that tracks Students and Courses for a mock university_
 
