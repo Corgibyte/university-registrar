@@ -22,6 +22,56 @@ a:hover {
   font-weight: bold;
 }
 
+label {
+  padding-right: .5em;
+  margin-top: .5em;
+}
+
+input {
+  display: block;
+  margin: .25em auto;
+}
+
+.btn {
+  display: block;
+  margin: 1em auto;
+  background-color: rgb(77, 92, 69);
+  color: white;
+}
+
+.btn:hover {
+  color: white;
+  font-weight: bold;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+h4, h3 {
+  color: rgb(77, 92, 69);
+}
+
+.bottom-link {
+  display: inline;
+  margin-right: .75em;
+}
+
+.bottom-link a {
+  background-color: white;
+  color: rgb(77, 92, 69);
+  border: .2em solid rgb(77, 92, 69);
+  padding: .5em 1em;
+  border-radius: .5em;
+}
+
+.bottom-link a:hover {
+  background-color: rgb(77, 92, 69);
+  color: white;
+  font-weight: normal;
+}
+
+
 #nav-ul {
   display: flex;
   margin-left: -2rem;
@@ -100,17 +150,56 @@ nav li a:hover {
 }
 
 .hero-img {
-  width: 65%;
-}
-
-.hero-img:hover {
-  width: 70%;
-}
-
-#people-img {
   width: 60%;
 }
 
-#people-img:hover {
+#hero a:hover :first-child {
   width: 65%;
+}
+
+#student-details-ul {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 1em 0 2em 0;
+}
+
+.student-details-li {
+  background-color: rgb(77, 92, 69);
+  color: white;
+  width: 20em;
+  padding: 1em 0;
+  border-radius: .5em;
+  font-size: 1.3rem;
+}
+
+.student-details-li p {
+  font-size: 1.2rem;
+}
+
+.student-details-li input {
+  border: none;
+  margin-top: .5em;
+  padding: .25em .5em;
+  border-radius: .25em;
+  font-size: .8rem;
+}
+
+#completed {
+  color: rgb(162, 236, 162);
+}
+
+#incomplete {
+  color: rgb(231, 96, 96);
+}
+
+#student-details-filter a{
+  color: white;
+  background-color: rgb(77, 92, 69);
+  padding: .25em .5em;
+  border-radius: .25em;
+}
+
+#student-details-filter {
+  margin-top: 1.5em;
 }

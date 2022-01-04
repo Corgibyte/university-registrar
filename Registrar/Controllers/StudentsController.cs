@@ -70,12 +70,22 @@ namespace Registrar.Controllers
     [HttpPost]
     public ActionResult AddCourse(Student student, int CourseId)
     {
-      if (CourseId != 0)
+      bool alreadyExists = _db.CourseStudent.Any(courseStudent => courseStudent.StudentId == student.StudentId && courseStudent.CourseId == CourseId);
+      if (CourseId != 0 && !alreadyExists)
       {
         _db.CourseStudent.Add(new CourseStudent() { CourseId = CourseId, StudentId = student.StudentId });
       }
       _db.SaveChanges();
+      if (alreadyExists)
+      {
+        return RedirectToAction("AddCourseError");
+      }
       return RedirectToAction("Index");
+    }
+
+    public ActionResult AddCourseError()
+    {
+      return View();
     }
 
     [HttpPost]

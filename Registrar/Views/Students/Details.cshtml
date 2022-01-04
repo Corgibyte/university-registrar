@@ -2,7 +2,7 @@
 
 <h2>Student Details</h2>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<h3>@Html.DisplayNameFor(model => model.EnrollmentDate): @Html.DisplayFor(model => model.EnrollmentDate)</h3>
+<h4>@Html.DisplayNameFor(model => model.EnrollmentDate): @Html.DisplayFor(model => model.EnrollmentDate)</h4>
 
 @if (@Model.JoinEntities.Count == 0)
 {
@@ -10,36 +10,36 @@
 }
 else
 {
-  <p>@Html.ActionLink("See Completed courses only", "CompletedDetails", new { id = Model.StudentId })</p>
+  <p id="student-details-filter">@Html.ActionLink("See Completed courses only", "CompletedDetails", new { id = Model.StudentId })</p>
   <h4>Courses:</h4>
-  <ul>
+  <ul id="student-details-ul">
   @foreach (var join in Model.JoinEntities)
     {
-      <li>
+      <li class="student-details-li">
         @join.Course.Name
         @if (join.Complete)
         {
-          <p>Completed</p>
+          <p id="completed">Completed</p>
         }
         else
         {
-          <p>Incomplete</p>
+          <p id="incomplete">Incomplete</p>
+        }
+        @using (Html.BeginForm("DeleteCourse", "Students"))
+        {
+          @Html.Hidden("joinId", @join.CourseStudentId)
+          <input type="submit" value="Delete" />
+        }
+        @using (Html.BeginForm("SwitchCompleted", "Students"))
+        {
+          @Html.Hidden("joinId", @join.CourseStudentId)
+          <input type="submit" value="Toggle Completed">
         }
       </li>
-      @using (Html.BeginForm("DeleteCourse", "Students"))
-      {
-        @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Delete" />
-      }
-      @using (Html.BeginForm("SwitchCompleted", "Students"))
-      {
-        @Html.Hidden("joinId", @join.CourseStudentId)
-        <input type="submit" value="Toggle Completed">
-      }
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Add Course", "AddCourse", new { id = Model.StudentId })</p>
-<p>@Html.ActionLink("Edit student", "Edit", new { id = Model.StudentId })</p>
-<p>@Html.ActionLink("Delete student", "Delete", new { id = Model.StudentId })</p>
+<p class="bottom-link">@Html.ActionLink("Add Course", "AddCourse", new { id = Model.StudentId })</p>
+<p class="bottom-link">@Html.ActionLink("Edit student", "Edit", new { id = Model.StudentId })</p>
+<p class="bottom-link">@Html.ActionLink("Delete student", "Delete", new { id = Model.StudentId })</p>
